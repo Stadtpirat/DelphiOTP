@@ -24,13 +24,13 @@ One time password: 812658
 Easy Display: Format('%.6d', [CalculateOTP(SECRET)]);
 *)
 
-function CalculateOTP(const Secret: String; const Counter: Integer = -1): Integer;
+function CalculateOTP(const Secret: String; const Counter: Integer = -1; const otpLength: Integer = -1): Integer;
 function ValidateTOPT(const Secret: String; const Token: Integer; const WindowSize: Integer = 4): Boolean;
 
 implementation
 
 const
-  otpLength = 6;
+  //otpLength = 6;
   // if you use 8 u can use this file for Battle.net Authenticator
   keyRegeneration = 30;
 
@@ -87,7 +87,7 @@ begin
   end;
 end;
 
-function CalculateOTP(const Secret: String; const Counter: Integer = -1): Integer;
+function CalculateOTP(const Secret: String; const Counter: Integer = -1; const otpLength: Integer = -1): Integer;
 var
   BinSecret: String;
   Hash: String;
