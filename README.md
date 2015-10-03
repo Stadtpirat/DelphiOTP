@@ -32,6 +32,7 @@ begin
 
 	// To display the token, use the Format-Function
 	ShowMessage(Format('%.6d', [Token]);
+	// if you use %.8d u can use this file for Battle.net Authenticator
 end;
 ```
 
