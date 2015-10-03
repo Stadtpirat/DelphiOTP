@@ -28,14 +28,41 @@ var
 	Token: Integer;
 begin
 	// Using time-based Token
-	Token := CalculateOTP('MYBASE32SECRET'); // Returns the Token as Integer;
-
+	Token := CalculateOTP('MYBASE32SECRET',-1,6); // Returns the Token as Integer;
+	//6 is key length
 	// To display the token, use the Format-Function
 	ShowMessage(Format('%.6d', [Token]);
-	// if you use %.8d u can use this file for Battle.net Authenticator 
-	// don not forget change key length in otp.pas
+	
+	
 end;
 ```
+
+Battle.net Authenticator
+------------------------------------------------------------
+_MYBASE32SECRET_ is the pre-shared secret.
+Battle.net Authenticator Key found with Winauth Tool!!
+
+```Pascal
+uses
+  GoogleOTP;
+  
+[...]
+
+var
+	Token: Integer;
+begin
+	// Using time-based Token
+	Token := CalculateOTP('MYBASE32SECRET',-1,8); // Returns the Token as Integer;
+	// 8 is key length
+	// To display the token, use the Format-Function
+	ShowMessage(Format('%.8d', [Token]);
+	
+	
+end;
+```
+
+
+
 
 How to generate Counter-based OTP using the code provided?
 -------------------------------------------------------
@@ -52,12 +79,14 @@ var
 	Token: Integer;
 begin
 	// Using counter-based Token
-	Token := CalculateOTP('MYBASE32SECRET', 4); // Returns the Token as Integer;
-
+	Token := CalculateOTP('MYBASE32SECRET', 4,6); // Returns the Token as Integer;
+	//6 is key length
 	// To display the token, use the Format-Function
 	ShowMessage(Format('%.6d', [Token]);
 end;
 ```
+
+
 
 How to validate Time-based OTP using the code provided?
 -------------------------------------------------------
