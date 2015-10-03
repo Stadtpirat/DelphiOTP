@@ -31,6 +31,7 @@ implementation
 
 const
   otpLength = 6;
+  // if you use 8 u can use this file for Battle.net Authenticator
   keyRegeneration = 30;
 
 /// <summary>
